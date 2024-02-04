@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Management</title>
+    
+</head>
+<body>
+
+<h1>User Management</h1>
+
+<form action="/add_user" method="post">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required>
+    
+    <label for="gender">Gender:</label>
+    <select id="gender" name="gender" required>
+        <option value="férfi">Férfi</option>
+        <option value="nő">Nő</option>
+    </select>
+    
+    <button type="submit">Add User</button>
+</form>
+
+
+<table border="1">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Gender</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for user in users %}
+            <tr>
+                <td>{{ user.id }}</td>
+                <td>{{ user.name }}</td>
+                <td>{{ user.gender }}</td>
+                <td>
+                    <form action="/update_user/{{ user.id }}" method="post" style="display:inline;">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" value="{{ user.name }}" required>
+                        
+                        <label for="gender">Gender:</label>
+                        <input type="text" id="gender" name="gender" value="{{ user.gender }}" required>
+                        
+                        <button type="submit">Update</button>
+                    </form>
+                    
+                    <a href="/delete_user/{{ user.id }}" style="color: red;">Delete</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+</body>
+</html>
