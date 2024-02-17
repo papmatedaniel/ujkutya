@@ -26,15 +26,11 @@ def add_user():
     db.session.commit()
     return redirect('/')
 
-@app.route('/table')
-def table():
-    users = User.query.all()
-    return render_template('table.html', users=users)
 
-@app.route('/edit_user/<int:user_id>')
-def edit_user(user_id):
-    user = User.query.get(user_id)
-    return render_template('edit_user.html', user=user)
+@app.route('/felhasznalomodositasa')
+def felhasznalomodositasa():
+    users = User.query.all()
+    return render_template('felhasznalomodositasa.html', users=users)
 
 @app.route('/update_user/<int:user_id>', methods=['POST'])
 def update_user(user_id):
@@ -43,6 +39,12 @@ def update_user(user_id):
     user.gender = request.form['gender']
     db.session.commit()
     return redirect('/table')
+
+@app.route('/table')
+def table():
+    users = User.query.all()
+    return render_template('table.html', users=users)
+
 
 if __name__ == '__main__':
     app.run(debug=True)
