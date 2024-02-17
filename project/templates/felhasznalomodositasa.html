@@ -8,25 +8,36 @@
 </head>
 <body>
 
+<a href="/">Vissza az indexre</a>
+<a href="/table">Felhasználók szerkesztése</a>    
+
+
 <h1>Felhasználók szerkesztése</h1>
 
-
 <form action="/update_user" method="post">
-    {% for user in users %}
-        <label for="name{{ user.id }}">Név:</label>
-        <input type="text" id="name{{ user.id }}" name="name{{ user.id }}" value="{{ user.name }}" required>
-        
-        <label for="gender{{ user.id }}">Nem:</label>
-        <input type="text" id="gender{{ user.id }}" name="gender{{ user.id }}" value="{{ user.gender }}" required>
-        <br>
-    {% endfor %}
-    <button type="submit">Felhasználók adatainak frissítése</button>
+    <table>
+        <tr>
+            <th>Név</th>
+            <th>Nem</th>
+            <th>Műveletek</th>
+        </tr>
+        {% for user in users %}
+        <tr>
+            <td><input type="text" name="name{{ user.id }}" value="{{ user.name }}" required></td>
+            <td><input type="text" name="gender{{ user.id }}" value="{{ user.gender }}" required></td>
+            <td>
+                <button type="submit" name="action" value="update_{{ user.id }}">Frissítés</button>
+                <button type="submit" name="action" value="delete_{{ user.id }}">Törlés</button>
+            </td>
+        </tr>
+        {% endfor %}
+        <tr>
+            <td colspan="3"><button type="submit" name="action" value="update_all">Összes adat frissítése</button></td>
+        </tr>
+    </table>
 </form>
 
 
-
-
-<a href="/">Vissza az indexre</a>
 
 </body>
 </html>
