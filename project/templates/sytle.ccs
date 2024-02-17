@@ -1,0 +1,15 @@
+/* CSS for the header */
+header {
+    background-color: #333; /* Sötét szürke háttér */
+    color: white; /* Fehér szöveg */
+    padding: 20px; /* Belül a tartalomtól való távolság */
+    text-align: center; /* A szöveg középre igazítása */
+    margin-bottom: 20px; /* Alsó margó a header és a tartalom között */
+}
+
+/* CSS for the navigation links */
+nav a {
+    color: white; /* Fehér szöveg */
+    text-decoration: none; /* Nincs aláhúzás a hivatkozásokon */
+    margin-right: 10px; /* Jobb margó a navigációs elemek között */
+}
