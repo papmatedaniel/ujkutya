@@ -1,4 +1,3 @@
-/* CSS for the header */
 header {
     background-color: #333; /* Sötét szürke háttér */
     color: white; /* Fehér szöveg */
@@ -7,9 +6,21 @@ header {
     margin-bottom: 20px; /* Alsó margó a header és a tartalom között */
 }
 
-/* CSS for the navigation links */
 nav a {
     color: white; /* Fehér szöveg */
     text-decoration: none; /* Nincs aláhúzás a hivatkozásokon */
     margin-right: 10px; /* Jobb margó a navigációs elemek között */
+}
+
+.header-buttons button {
+    background-color: #4CAF50; /* Zöld háttér */
+    color: white; /* Fehér szöveg */
+    padding: 10px 20px; /* Belül a tartalomtól való távolság */
+    border: none; /* Nincs keret */
+    cursor: pointer; /* Mutató kurzor */
+    margin-right: 10px; /* Jobb margó a gombok között */
+}
+
+.header-buttons button:hover {
+    background-color: #45a049; /* Sötétebb zöld háttér hover esetén */
 }
