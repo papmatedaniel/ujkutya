@@ -24,39 +24,9 @@
     <button type="submit">Felhasználó hozzáadása</button>
 </form>
 
+<a href="/table">Táblázat megtekintése</a>
+<a href="/edit_user">Felhasználók szerkesztése</a>
 
-<table border="1">
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Név</th>
-            <th>Nem</th>
-            <th>Módosítás</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for user in users %}
-            <tr>
-                <td>{{ user.id }}</td>
-                <td>{{ user.name }}</td>
-                <td>{{ user.gender }}</td>
-                <td>
-                    <form action="/update_user/{{ user.id }}" method="post" style="display:inline;">
-                        <label for="name">Név:</label>
-                        <input type="text" id="name" name="name" value="{{ user.name }}" required>
-                        
-                        <label for="gender">Nem:</label>
-                        <input type="text" id="gender" name="gender" value="{{ user.gender }}" required>
-                        
-                        <button type="submit">Frissít</button>
-                    </form>
-                    
-                    <a href="/delete_user/{{ user.id }}" style="color: red;">Törlés</a>
-                </td>
-            </tr>
-        {% endfor %}
-    </tbody>
-</table>
 
 </body>
 </html>

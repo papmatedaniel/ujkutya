@@ -15,8 +15,7 @@ with app.app_context():
 
 @app.route('/')
 def index():
-    users = User.query.all()
-    return render_template('index.html', users=users)
+    return render_template('index.html')
 
 @app.route('/add_user', methods=['POST'])
 def add_user():
@@ -27,20 +26,23 @@ def add_user():
     db.session.commit()
     return redirect('/')
 
+@app.route('/table')
+def table():
+    users = User.query.all()
+    return render_template('table.html', users=users)
+
+@app.route('/edit_user/<int:user_id>')
+def edit_user(user_id):
+    user = User.query.get(user_id)
+    return render_template('edit_user.html', user=user)
+
 @app.route('/update_user/<int:user_id>', methods=['POST'])
 def update_user(user_id):
     user = User.query.get(user_id)
     user.name = request.form['name']
     user.gender = request.form['gender']
     db.session.commit()
-    return redirect('/')
-
-@app.route('/delete_user/<int:user_id>')
-def delete_user(user_id):
-    user = User.query.get(user_id)
-    db.session.delete(user)
-    db.session.commit()
-    return redirect('/')
+    return redirect('/table')
 
 if __name__ == '__main__':
     app.run(debug=True)
