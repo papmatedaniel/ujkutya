@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
 
-    <title>Felhasználói adatok</title>
+    <title>Állat adatok</title>
 
 
 
@@ -14,22 +14,22 @@
 <body>
 
 <header>
-    <h1>Felhasználó hozzáadása</h1>
+    <h1>Állat hozzáadása</h1>
     <div class="header-buttons">
-        <button onclick="location.href='/table'">Táblázat megtekintése</button>
-        <button onclick="location.href='/felhasznalomodositasa'">Felhasználók szerkesztése</button>
+        <button onclick="location.href='/tablazat'">Táblázat megtekintése</button>
+        <button onclick="location.href='/allatmodositasa'">Táblázat szerkesztése</button>
     </div>
 </header>
 
 
-<form action="/add_user" method="post">
-    <label for="name">Név:</label>
-    <input type="text" id="name" name="name" required>
+<form action="/allat_hozzaadasa" method="post">
+    <label for="nev">Név:</label>
+    <input type="text" id="nev" name="nev" required>
 
-    <label for="gender">Nem:</label>
-    <select id="gender" name="gender" required>
-        <option value="férfi">Hím</option>
-        <option value="nő">Nőstény</option>
+    <label for="nem">Nem:</label>
+    <select id="nem" name="nem" required>
+        <option value="Hím">Hím</option>
+        <option value="Nőstény">Nőstény</option>
     </select>
 
     <button type="submit">Felhasználó hozzáadása</button>
