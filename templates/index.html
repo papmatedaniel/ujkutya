@@ -4,29 +4,38 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+
     <title>Felhasználói adatok</title>
-    
+
+
+
 </head>
 <body>
 
-<h1>Felhasználói adatok</h1>
+<header>
+    <h1>Felhasználó hozzáadása</h1>
+    <div class="header-buttons">
+        <button onclick="location.href='/table'">Táblázat megtekintése</button>
+        <button onclick="location.href='/felhasznalomodositasa'">Felhasználók szerkesztése</button>
+    </div>
+</header>
+
 
 <form action="/add_user" method="post">
     <label for="name">Név:</label>
     <input type="text" id="name" name="name" required>
-    
+
     <label for="gender">Nem:</label>
     <select id="gender" name="gender" required>
         <option value="férfi">Hím</option>
         <option value="nő">Nőstény</option>
     </select>
-    
+
     <button type="submit">Felhasználó hozzáadása</button>
 </form>
 
-<a href="/table">Táblázat megtekintése</a>
-<a href="/felhasznalomodositasa">Felhasználók szerkesztése</a>
-<a href="/welcome">Üdvözöllek az oldalon</a>
+
 
 
 
