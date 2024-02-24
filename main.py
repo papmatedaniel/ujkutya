@@ -26,23 +26,37 @@ def add_user():
     db.session.commit()
     return redirect('/')
 
+
+@app.route('/felhasznalomodositasa')
+def felhasznalomodositasa():
+    users = User.query.all()
+    return render_template('felhasznalomodositasa.html', users=users)
+
+@app.route('/update_user', methods=['POST'])
+def update_user():
+    for user in User.query.all():
+        user_id = user.id
+        if f"update_{user_id}" in request.form['action']:
+            user.name = request.form[f'name{user_id}']
+            user.gender = request.form[f'gender{user_id}']
+        elif f"delete_{user_id}" in request.form['action']:
+            db.session.delete(user)
+    if "update_all" in request.form['action']:
+        for user in User.query.all():
+            user.name = request.form[f'name{user.id}']
+            user.gender = request.form[f'gender{user.id}']
+    db.session.commit()
+    return redirect('/table')
+
+
+
+
+
 @app.route('/table')
 def table():
     users = User.query.all()
     return render_template('table.html', users=users)
 
-@app.route('/edit_user/<int:user_id>')
-def edit_user(user_id):
-    user = User.query.get(user_id)
-    return render_template('edit_user.html', user=user)
-
-@app.route('/update_user/<int:user_id>', methods=['POST'])
-def update_user(user_id):
-    user = User.query.get(user_id)
-    user.name = request.form['name']
-    user.gender = request.form['gender']
-    db.session.commit()
-    return redirect('/table')
 
 if __name__ == '__main__':
     app.run(debug=True)
