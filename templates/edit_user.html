@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Felhasználó adatainak szerkesztése</title>
+</head>
+<body>
+
+<h1>Felhasználó adatainak szerkesztése</h1>
+
+<form action="/update_user/{{ user.id }}" method="post">
+    <label for="name">Név:</label>
+    <input type="text" id="name" name="name" value="{{ user.name }}" required>
+    
+    <label for="gender">Nem:</label>
+    <input type="text" id="gender" name="gender" value="{{ user.gender }}" required>
+    
+    <button type="submit">Felhasználó adatainak frissítése</button>
+</form>
+
+</body>
+</html>
