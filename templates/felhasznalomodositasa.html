@@ -4,28 +4,48 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
     <title>Felhasználók szerkesztése</title>
+
+
 </head>
 <body>
 
-<h1>Felhasználók szerkesztése</h1>
+<header>
+    <h1>Felhasználók szerkesztése</h1>
+    <div class="header-buttons">
+        <button onclick="location.href='/'">Vissza az főoldara</button>
+        <button onclick="location.href='/table'">Táblázat megtekintése</button>
+    </div>
+</header>
+
+
+
 
 <form action="/update_user" method="post">
-    {% for user in users %}
-        <label for="name{{ user.id }}">Név:</label>
-        <input type="text" id="name{{ user.id }}" name="name{{ user.id }}" value="{{ user.name }}" required>
-        
-        <label for="gender{{ user.id }}">Nem:</label>
-        <input type="text" id="gender{{ user.id }}" name="gender{{ user.id }}" value="{{ user.gender }}" required>
-        <br>
-    {% endfor %}
-    <button type="submit">Felhasználók adatainak frissítése</button>
+    <table>
+        <tr>
+            <th>Név</th>
+            <th>Nem</th>
+            <th>Műveletek</th>
+        </tr>
+        {% for user in users %}
+        <tr>
+            <td><input type="text" name="name{{ user.id }}" value="{{ user.name }}" required></td>
+            <td><input type="text" name="gender{{ user.id }}" value="{{ user.gender }}" required></td>
+            <td>
+                <button type="submit" name="action" value="update_{{ user.id }}">Frissítés</button>
+                <button type="submit" name="action" value="delete_{{ user.id }}">Törlés</button>
+            </td>
+        </tr>
+        {% endfor %}
+        <tr>
+            <td colspan="3"><button type="submit" name="action" value="update_all">Összes adat frissítése</button></td>
+        </tr>
+    </table>
 </form>
 
 
-
-
-<a href="/">Vissza az indexre</a>
 
 </body>
 </html>
