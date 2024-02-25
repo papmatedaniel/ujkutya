@@ -22,7 +22,7 @@
 </header>
 
 
-<form action="/allat_hozzaadasa" method="post">
+<!--<form action="/allat_hozzaadasa" method="post">
     <label for="nev">Név:</label>
     <input type="text" id="nev" name="nev" required>
 
@@ -33,7 +33,45 @@
     </select>
 
     <button type="submit">Felhasználó hozzáadása</button>
+</form>-->
+
+<form action="/allat_hozzaadasa" method="post">
+    <label for="nev">Név:</label>
+    <input type="text" id="nev" name="nev" required>
+
+    <label for="nem">Nem:</label>
+    <select id="nem" name="nem" required>
+        <option value="Hím">Hím</option>
+        <option value="Nőstény">Nőstény</option>
+    </select>
+
+    <label for="csipszam">Chipszám:</label>
+    <input type="number" id="csipszam" name="csipszam">
+
+    <label for="fajta">Fajta vagy jellemzők:</label>
+    <input type="text" id="fajta" name="fajta">
+
+    <label for="tipus">Típus (pl. egyértelmű, fajtajellemzőkkel keverék):</label>
+    <input type="text" id="tipus" name="tipus">
+
+    <label for="egeszsegiallapot">Egészségi állapot:</label>
+    <input type="text" id="egeszsegiallapot" name="egeszsegiallapot">
+
+    <label for="fogazat">Fogazat:</label>
+    <input type="text" id="fogazat" name="fogazat">
+
+    <label for="kor">Kor:</label>
+    <input type="number" id="kor" name="kor">
+
+    <label for="viselkedes">Viselkedés:</label>
+    <input type="text" id="viselkedes" name="viselkedes">
+
+    <label for="egyeb">Egyéb jellemzők:</label>
+    <input type="text" id="egyeb" name="egyeb">
+
+    <button type="submit">Állat hozzáadása</button>
 </form>
+
 
 
 

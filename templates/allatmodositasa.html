@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='allatmodositas.css') }}">
     <title>Állatok szerkesztése</title>
 
 
@@ -22,7 +22,7 @@
 
 
 
-<form action="/allat_frissitese" method="post">
+<!--<form action="/allat_frissitese" method="post">
     <table>
         <tr>
             <th>Név</th>
@@ -43,7 +43,49 @@
             <td colspan="3"><button type="submit" name="action" value="update_all">Összes adat frissítése</button></td>
         </tr>
     </table>
+</form>-->
+<form action="/allat_frissitese" method="post">
+    <table>
+        <tr>
+            <th>Név</th>
+            <th>Nem</th>
+            <!-- Új oszlopok hozzáadása -->
+            <th>Chipszám</th>
+            <th>Fajta vagy jellemzők</th>
+            <th>Típus</th>
+            <th>Egészségi állapot</th>
+            <th>Fogazat</th>
+            <th>Kor</th>
+            <th>Viselkedés</th>
+            <th>Egyéb jellemzők</th>
+            <th>Műveletek</th>
+        </tr>
+        {% for allat in allatok %}
+        <tr>
+            <td><input type="text" name="nev{{ allat.id }}" value="{{ allat.nev.capitalize() }}" required></td>
+            <td><input type="text" name="nem{{ allat.id }}" value="{{ allat.nem }}" required></td>
+            <!-- Új oszlopokhoz input mezők hozzáadása -->
+            <td><input type="number" name="csipszam{{ allat.id }}" value="{{ allat.csipszam }}"></td>
+            <td><input type="text" name="fajta{{ allat.id }}" value="{{ allat.fajta }}"></td>
+            <td><input type="text" name="tipus{{ allat.id }}" value="{{ allat.tipus }}"></td>
+            <td><input type="text" name="egeszsegiallapot{{ allat.id }}" value="{{ allat.egeszsegiallapot }}"></td>
+            <td><input type="text" name="fogazat{{ allat.id }}" value="{{ allat.fogazat }}"></td>
+            <td><input type="number" name="kor{{ allat.id }}" value="{{ allat.kor }}"></td>
+            <td><input type="text" name="viselkedes{{ allat.id }}" value="{{ allat.viselkedes }}"></td>
+            <td><input type="text" name="egyeb{{ allat.id }}" value="{{ allat.egyeb }}"></td>
+            <!-- Műveletek oszlop -->
+            <td>
+                <button type="submit" name="action" value="update_{{ allat.id }}">Frissítés</button>
+                <button type="submit" name="action" value="delete_{{ allat.id }}">Törlés</button>
+            </td>
+        </tr>
+        {% endfor %}
+        <tr>
+            <td colspan="12"><button type="submit" name="action" value="update_all">Összes adat frissítése</button></td>
+        </tr>
+    </table>
 </form>
+
 
 
 

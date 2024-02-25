@@ -1,0 +1,62 @@
+header {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+nav a {
+    color: white; 
+    text-decoration: none; 
+    margin-right: 10px; 
+}
+
+.header-buttons button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 8px 16px; /* Kisebb padding */
+    border: none;
+    cursor: pointer;
+    margin-right: 5px; /* Kisebb margó a gombok között */
+    margin-bottom: 5px; /* Kisebb margó az alatta lévő elemektől */
+}
+
+.header-buttons button:hover {
+    background-color: #45a049;
+    transition: 0.5s ease;
+}
+
+
+
+label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+input[type="number"],
+input[type="text"],
+select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    background-color: #ddd;
+}
+
+button[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: #45a049;
+    transition: 0.5s ease;
+}

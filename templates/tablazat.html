@@ -22,7 +22,7 @@
     </div>
 </header>
 
-<table border="1">
+<!--<table border="1">
     <thead>
         <tr>
             <th>ID</th>
@@ -39,7 +39,44 @@
             </tr>
         {% endfor %}
     </tbody>
+</table>-->
+<table border="1">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Név</th>
+            <th>Nem</th>
+            <!-- Új oszlopok hozzáadása -->
+            <th>Chipszám</th>
+            <th>Fajta vagy jellemzők</th>
+            <th>Típus</th>
+            <th>Egészségi állapot</th>
+            <th>Fogazat</th>
+            <th>Kor</th>
+            <th>Viselkedés</th>
+            <th>Egyéb jellemzők</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for user in users %}
+            <tr>
+                <td>{{ user.id }}</td>
+                <td>{{ user.nev.capitalize() }}</td>
+                <td>{{ user.nem }}</td>
+                <!-- Új oszlopok értékeinek megjelenítése -->
+                <td>{{ user.csipszam }}</td>
+                <td>{{ user.fajta }}</td>
+                <td>{{ user.tipus }}</td>
+                <td>{{ user.egeszsegiallapot }}</td>
+                <td>{{ user.fogazat }}</td>
+                <td>{{ user.kor }}</td>
+                <td>{{ user.viselkedes }}</td>
+                <td>{{ user.egyeb }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
 </table>
+
 
 
 </body>
