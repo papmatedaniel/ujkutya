@@ -10,7 +10,7 @@
 
 </head>
 <body>
-
+<!--
 <header>
     <h1>Állatok szerkesztése</h1>
     <div class="header-buttons">
@@ -18,6 +18,17 @@
         <button onclick="location.href='/tablazat'">Táblázat megtekintése</button>
     </div>
 </header>
+-->
+<nav>
+    <div class="logo">Állatmenhely</div>
+    <div class="nav-links">
+        <a href="/">Főoldal</a>
+        <a href="/tablazat">Táblázat megtekintése</a>
+        <a href="/allatmodositasa">Táblázat szerkesztése</a>
+        <button onclick="location.href='/allatmodositasa'">Regisztráció</button>
+        <button onclick="location.href='/allatmodositasa'">Belépés</button>
+    </div>
+</nav>
 <main class="st_viewport">
     <div data-table_id="0">
         <form action="/allat_frissitese" method="post">

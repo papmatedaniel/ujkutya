@@ -13,6 +13,7 @@
 </head>
 <body>
 
+<!--
 <header>
     <h1>Állat hozzáadása</h1>
     <div class="header-buttons">
@@ -20,20 +21,18 @@
         <button onclick="location.href='/allatmodositasa'">Táblázat szerkesztése</button>
     </div>
 </header>
+-->
+<nav>
+    <div class="logo">Állatmenhely</div>
+    <div class="nav-links">
+        <a href="/">Főoldal</a>
+        <a href="/tablazat">Táblázat megtekintése</a>
+        <a href="/allatmodositasa">Táblázat szerkesztése</a>
+        <button onclick="location.href='/'">Regisztráció</button>
+        <button onclick="location.href='/'">Belépés</button>
+    </div>
+</nav>
 
-
-<!--<form action="/allat_hozzaadasa" method="post">
-    <label for="nev">Név:</label>
-    <input type="text" id="nev" name="nev" required>
-
-    <label for="nem">Nem:</label>
-    <select id="nem" name="nem" required>
-        <option value="Hím">Hím</option>
-        <option value="Nőstény">Nőstény</option>
-    </select>
-
-    <button type="submit">Felhasználó hozzáadása</button>
-</form>-->
 
 <form action="/allat_hozzaadasa" method="post">
     <label for="nev">Név:</label>
