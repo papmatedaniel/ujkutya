@@ -38,14 +38,14 @@ select {
     border: 1px solid #ccc;
     border-radius: 4px;
     font-size: 14px;
-    background-color: #ddd;
+    background-color: #B3E5FC;
 }
 
 
 /* Előző stílusok megtartása */
 
 form {
-    background-color: #6ea3b4;
+    background-color: rgb(62, 148, 236);
     padding: 20px;
     border-radius: 8px;
     width: 400px;
